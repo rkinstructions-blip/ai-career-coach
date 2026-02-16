@@ -1,6 +1,10 @@
-export default async function handler(req, res) {
+export const config = {
+  runtime: "edge",
+};
+
+export default async function handler(req) {
   try {
-    const { messages } = req.body;
+    const { messages } = await req.json();
 
     const systemPrompt = `
 You are an AI Health Education Assistant.
@@ -30,7 +34,7 @@ Always end with:
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
       },
       body: JSON.stringify({
         model: "gpt-4o-mini",
@@ -38,16 +42,23 @@ Always end with:
           { role: "system", content: systemPrompt },
           ...messages
         ],
-        temperature: 0.4
-      })
+        temperature: 0.4,
+      }),
     });
 
     const data = await openaiRes.json();
     const reply = data.choices?.[0]?.message?.content || "No response.";
 
-    res.status(200).json({ reply });
+    return new Response(JSON.stringify({ reply }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Server error" });
+    return new Response(JSON.stringify({ error: "Server error" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 }

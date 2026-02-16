@@ -1,28 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 25.8.4.2 (Linux)"/>
-	<meta name="created" content="00:00:00"/>
-	<meta name="changed" content="00:00:00"/>
-	<style type="text/css">
-		@page { size: 8.27in 11.69in; margin: 0.79in }
-		p { margin-bottom: 0.1in; line-height: 115%; background: transparent }
-		pre { font-size: 10pt; font-family: "Liberation Mono", monospace; background: transparent }
-	</style>
-</head>
-<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><pre>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-  &lt;meta charset=&quot;UTF-8&quot; /&gt;
-  &lt;title&gt;AI Career Coach&lt;/title&gt;
-  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
-  &lt;link
-    href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;display=swap&quot;
-    rel=&quot;stylesheet&quot;
-  /&gt;
-  &lt;style&gt;
+  <meta charset="UTF-8" />
+  <title>AI Career Coach</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
     :root {
       --bg: #050510;
       --bg-alt: #0b0b1a;
@@ -43,7 +29,7 @@
     }
 
     body {
-      font-family: &quot;Inter&quot;, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       background: radial-gradient(circle at top, #1a1028 0, #050510 45%, #020208 100%);
       color: var(--text);
       min-height: 100vh;
@@ -79,7 +65,7 @@
     }
 
     .app-header::after {
-      content: &quot;&quot;;
+      content: "";
       position: absolute;
       inset: 0;
       background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.06), transparent 60%);
@@ -108,7 +94,7 @@
     }
 
     .logo-orb::after {
-      content: &quot;&quot;;
+      content: "";
       position: absolute;
       inset: 4px;
       border-radius: inherit;
@@ -607,155 +593,155 @@
         opacity: 1;
       }
     }
-  &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;div class=&quot;app-shell&quot;&gt;
-    &lt;header class=&quot;app-header&quot;&gt;
-      &lt;div class=&quot;header-left&quot;&gt;
-        &lt;div class=&quot;logo-orb&quot;&gt;&lt;/div&gt;
-        &lt;div class=&quot;header-title&quot;&gt;
-          &lt;h1&gt;AI Career Coach &lt;span&gt;Agent&lt;/span&gt;&lt;/h1&gt;
-          &lt;p&gt;Your neon&#8209;pink mentor for CVs, LinkedIn, and interviews.&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div class=&quot;header-right&quot;&gt;
-        &lt;div class=&quot;status-pill&quot;&gt;
-          &lt;div class=&quot;status-dot&quot;&gt;&lt;/div&gt;
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="header-left">
+        <div class="logo-orb"></div>
+        <div class="header-title">
+          <h1>AI Career Coach <span>Agent</span></h1>
+          <p>Your neon‑pink mentor for CVs, LinkedIn, and interviews.</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="status-pill">
+          <div class="status-dot"></div>
           Live Agent
-        &lt;/div&gt;
-        &lt;div class=&quot;tag-pill&quot;&gt;LLM&#8209;powered • Vercel • Serverless&lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/header&gt;
+        </div>
+        <div class="tag-pill">LLM‑powered • Vercel • Serverless</div>
+      </div>
+    </header>
 
-    &lt;div class=&quot;app-body&quot;&gt;
-      &lt;!-- LEFT PANEL: INPUTS --&gt;
-      &lt;section class=&quot;panel&quot;&gt;
-        &lt;div class=&quot;panel-title&quot;&gt;
+    <div class="app-body">
+      <!-- LEFT PANEL: INPUTS -->
+      <section class="panel">
+        <div class="panel-title">
           INPUTS
-          &lt;span&gt;CV • Job Description • Focus&lt;/span&gt;
-        &lt;/div&gt;
+          <span>CV • Job Description • Focus</span>
+        </div>
 
-        &lt;div class=&quot;input-card&quot;&gt;
-          &lt;div class=&quot;input-label&quot;&gt;
+        <div class="input-card">
+          <div class="input-label">
             Your CV / Resume
-            &lt;span&gt;Paste text&lt;/span&gt;
-          &lt;/div&gt;
-          &lt;textarea id=&quot;cvInput&quot; placeholder=&quot;Paste your CV or resume here. You can include bullet points, roles, achievements, and skills.&quot;&gt;&lt;/textarea&gt;
-          &lt;div class=&quot;quick-actions&quot;&gt;
-            &lt;button class=&quot;chip&quot; data-prompt=&quot;Rewrite my CV to be more concise and impact&#8209;driven.&quot;&gt;Make concise&lt;/button&gt;
-            &lt;button class=&quot;chip&quot; data-prompt=&quot;Rewrite my CV to match the job description.&quot;&gt;Match job&lt;/button&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
+            <span>Paste text</span>
+          </div>
+          <textarea id="cvInput" placeholder="Paste your CV or resume here. You can include bullet points, roles, achievements, and skills."></textarea>
+          <div class="quick-actions">
+            <button class="chip" data-prompt="Rewrite my CV to be more concise and impact‑driven.">Make concise</button>
+            <button class="chip" data-prompt="Rewrite my CV to match the job description.">Match job</button>
+          </div>
+        </div>
 
-        &lt;div class=&quot;input-card&quot;&gt;
-          &lt;div class=&quot;input-label&quot;&gt;
+        <div class="input-card">
+          <div class="input-label">
             Job Description (Optional)
-            &lt;span&gt;Target role&lt;/span&gt;
-          &lt;/div&gt;
-          &lt;textarea id=&quot;jdInput&quot; placeholder=&quot;Paste the job description here if you want the AI to tailor your CV, cover letter, or answers to a specific role.&quot;&gt;&lt;/textarea&gt;
-          &lt;div class=&quot;quick-actions&quot;&gt;
-            &lt;button class=&quot;chip&quot; data-prompt=&quot;Highlight the top 5 skills this job is really asking for.&quot;&gt;Extract skills&lt;/button&gt;
-            &lt;button class=&quot;chip&quot; data-prompt=&quot;Explain how my experience maps to this job.&quot;&gt;Map my experience&lt;/button&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
+            <span>Target role</span>
+          </div>
+          <textarea id="jdInput" placeholder="Paste the job description here if you want the AI to tailor your CV, cover letter, or answers to a specific role."></textarea>
+          <div class="quick-actions">
+            <button class="chip" data-prompt="Highlight the top 5 skills this job is really asking for.">Extract skills</button>
+            <button class="chip" data-prompt="Explain how my experience maps to this job.">Map my experience</button>
+          </div>
+        </div>
 
-        &lt;div class=&quot;input-card&quot;&gt;
-          &lt;div class=&quot;input-label&quot;&gt;
+        <div class="input-card">
+          <div class="input-label">
             What do you want help with?
-            &lt;span&gt;Focus&lt;/span&gt;
-          &lt;/div&gt;
-          &lt;div class=&quot;quick-actions&quot;&gt;
-            &lt;button class=&quot;chip&quot; data-prompt=&quot;Rewrite my CV to be tailored to this job and optimized for clarity and impact.&quot;&gt;Rewrite my CV&lt;/button&gt;
-            &lt;button class=&quot;chip&quot; data-prompt=&quot;Write a compelling cover letter for this job based on my CV.&quot;&gt;Cover letter&lt;/button&gt;
-            &lt;button class=&quot;chip&quot; data-prompt=&quot;Rewrite my LinkedIn About section to sound confident, clear, and authentic.&quot;&gt;LinkedIn About&lt;/button&gt;
-            &lt;button class=&quot;chip&quot; data-prompt=&quot;Give me 10 targeted interview questions and strong sample answers for this role.&quot;&gt;Interview prep&lt;/button&gt;
-          &lt;/div&gt;
-          &lt;div class=&quot;primary-actions&quot;&gt;
-            &lt;button id=&quot;analyzeBtn&quot; class=&quot;btn-main&quot;&gt;
-              &lt;span&gt;Run Career Agent&lt;/span&gt;
-            &lt;/button&gt;
-            &lt;button id=&quot;clearBtn&quot; class=&quot;btn-secondary&quot;&gt;
+            <span>Focus</span>
+          </div>
+          <div class="quick-actions">
+            <button class="chip" data-prompt="Rewrite my CV to be tailored to this job and optimized for clarity and impact.">Rewrite my CV</button>
+            <button class="chip" data-prompt="Write a compelling cover letter for this job based on my CV.">Cover letter</button>
+            <button class="chip" data-prompt="Rewrite my LinkedIn About section to sound confident, clear, and authentic.">LinkedIn About</button>
+            <button class="chip" data-prompt="Give me 10 targeted interview questions and strong sample answers for this role.">Interview prep</button>
+          </div>
+          <div class="primary-actions">
+            <button id="analyzeBtn" class="btn-main">
+              <span>Run Career Agent</span>
+            </button>
+            <button id="clearBtn" class="btn-secondary">
               Clear inputs
-            &lt;/button&gt;
-          &lt;/div&gt;
-          &lt;p class=&quot;hint-text&quot;&gt;
-            The agent will combine your &lt;strong&gt;CV&lt;/strong&gt;, the &lt;strong&gt;job description&lt;/strong&gt; (if provided), and your &lt;strong&gt;focus&lt;/strong&gt; to respond like a professional career coach.
-          &lt;/p&gt;
-        &lt;/div&gt;
+            </button>
+          </div>
+          <p class="hint-text">
+            The agent will combine your <strong>CV</strong>, the <strong>job description</strong> (if provided), and your <strong>focus</strong> to respond like a professional career coach.
+          </p>
+        </div>
 
-        &lt;div class=&quot;badge-row&quot;&gt;
-          &lt;div class=&quot;badge&quot;&gt;&lt;strong&gt;Safe:&lt;/strong&gt; No medical, legal, or financial advice.&lt;/div&gt;
-          &lt;div class=&quot;badge&quot;&gt;&lt;strong&gt;Use case:&lt;/strong&gt; CVs, LinkedIn, interviews, career clarity.&lt;/div&gt;
-        &lt;/div&gt;
+        <div class="badge-row">
+          <div class="badge"><strong>Safe:</strong> No medical, legal, or financial advice.</div>
+          <div class="badge"><strong>Use case:</strong> CVs, LinkedIn, interviews, career clarity.</div>
+        </div>
 
-        &lt;div id=&quot;errorBox&quot; class=&quot;error-banner&quot; style=&quot;display:none;&quot;&gt;&lt;/div&gt;
-      &lt;/section&gt;
+        <div id="errorBox" class="error-banner" style="display:none;"></div>
+      </section>
 
-      &lt;!-- RIGHT PANEL: CHAT --&gt;
-      &lt;section class=&quot;panel&quot;&gt;
-        &lt;div class=&quot;panel-title&quot;&gt;
+      <!-- RIGHT PANEL: CHAT -->
+      <section class="panel">
+        <div class="panel-title">
           COACH CONSOLE
-          &lt;span&gt;Chat • Feedback • Strategy&lt;/span&gt;
-        &lt;/div&gt;
+          <span>Chat • Feedback • Strategy</span>
+        </div>
 
-        &lt;div class=&quot;chat-shell&quot;&gt;
-          &lt;div id=&quot;chatWindow&quot; class=&quot;chat-window&quot;&gt;
-            &lt;div class=&quot;chat-message assistant&quot;&gt;
-              &lt;div class=&quot;chat-meta&quot;&gt;
-                &lt;span&gt;AI CAREER COACH&lt;/span&gt; • Welcome
-              &lt;/div&gt;
+        <div class="chat-shell">
+          <div id="chatWindow" class="chat-window">
+            <div class="chat-message assistant">
+              <div class="chat-meta">
+                <span>AI CAREER COACH</span> • Welcome
+              </div>
               Hey, I’m your AI Career Coach. Paste your CV, optionally add a job description, then tell me what you want:
               rewrite your CV, craft a cover letter, sharpen your LinkedIn, or prep for interviews. I’ll respond with
               clear, structured, practical guidance you can actually use.
-            &lt;/div&gt;
-          &lt;/div&gt;
+            </div>
+          </div>
 
-          &lt;div class=&quot;chat-input-row&quot;&gt;
-            &lt;input
-              id=&quot;chatInput&quot;
-              class=&quot;chat-input&quot;
-              placeholder=&quot;Ask something like: “Rewrite my CV for a senior product role” or “What skills am I missing?”&quot;
-            /&gt;
-            &lt;button id=&quot;sendBtn&quot; class=&quot;btn-send&quot;&gt;
+          <div class="chat-input-row">
+            <input
+              id="chatInput"
+              class="chat-input"
+              placeholder="Ask something like: “Rewrite my CV for a senior product role” or “What skills am I missing?”"
+            />
+            <button id="sendBtn" class="btn-send">
               Send
-            &lt;/button&gt;
-          &lt;/div&gt;
-          &lt;p class=&quot;hint-text&quot;&gt;
-            Your messages are combined with your CV and job description so the agent can respond with context&#8209;aware advice.
-          &lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/section&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
+            </button>
+          </div>
+          <p class="hint-text">
+            Your messages are combined with your CV and job description so the agent can respond with context‑aware advice.
+          </p>
+        </div>
+      </section>
+    </div>
+  </div>
 
-  &lt;script&gt;
-    const cvInput = document.getElementById(&quot;cvInput&quot;);
-    const jdInput = document.getElementById(&quot;jdInput&quot;);
-    const analyzeBtn = document.getElementById(&quot;analyzeBtn&quot;);
-    const clearBtn = document.getElementById(&quot;clearBtn&quot;);
-    const chatWindow = document.getElementById(&quot;chatWindow&quot;);
-    const chatInput = document.getElementById(&quot;chatInput&quot;);
-    const sendBtn = document.getElementById(&quot;sendBtn&quot;);
-    const errorBox = document.getElementById(&quot;errorBox&quot;);
+  <script>
+    const cvInput = document.getElementById("cvInput");
+    const jdInput = document.getElementById("jdInput");
+    const analyzeBtn = document.getElementById("analyzeBtn");
+    const clearBtn = document.getElementById("clearBtn");
+    const chatWindow = document.getElementById("chatWindow");
+    const chatInput = document.getElementById("chatInput");
+    const sendBtn = document.getElementById("sendBtn");
+    const errorBox = document.getElementById("errorBox");
 
     let isLoading = false;
     let typingEl = null;
 
     function appendMessage(role, text, metaLabel) {
-      const wrapper = document.createElement(&quot;div&quot;);
-      wrapper.className = &quot;chat-message &quot; + (role === &quot;user&quot; ? &quot;user&quot; : &quot;assistant&quot;);
+      const wrapper = document.createElement("div");
+      wrapper.className = "chat-message " + (role === "user" ? "user" : "assistant");
 
       if (metaLabel) {
-        const meta = document.createElement(&quot;div&quot;);
-        meta.className = &quot;chat-meta&quot;;
-        const span = document.createElement(&quot;span&quot;);
+        const meta = document.createElement("div");
+        meta.className = "chat-meta";
+        const span = document.createElement("span");
         span.textContent = metaLabel;
         meta.appendChild(span);
         wrapper.appendChild(meta);
       }
 
-      const body = document.createElement(&quot;div&quot;);
+      const body = document.createElement("div");
       body.textContent = text;
       wrapper.appendChild(body);
 
@@ -765,20 +751,20 @@
 
     function showTyping() {
       if (typingEl) return;
-      typingEl = document.createElement(&quot;div&quot;);
-      typingEl.className = &quot;typing-indicator&quot;;
+      typingEl = document.createElement("div");
+      typingEl.className = "typing-indicator";
       typingEl.innerHTML = `
-        &lt;span&gt;Thinking&lt;/span&gt;
-        &lt;div class=&quot;typing-dot&quot;&gt;&lt;/div&gt;
-        &lt;div class=&quot;typing-dot&quot;&gt;&lt;/div&gt;
-        &lt;div class=&quot;typing-dot&quot;&gt;&lt;/div&gt;
+        <span>Thinking</span>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
       `;
       chatWindow.appendChild(typingEl);
       chatWindow.scrollTop = chatWindow.scrollHeight;
     }
 
     function hideTyping() {
-      if (typingEl &amp;&amp; typingEl.parentNode) {
+      if (typingEl && typingEl.parentNode) {
         typingEl.parentNode.removeChild(typingEl);
       }
       typingEl = null;
@@ -789,19 +775,19 @@
       analyzeBtn.disabled = state;
       sendBtn.disabled = state;
       if (state) {
-        analyzeBtn.innerHTML = &quot;&lt;span&gt;Running...&lt;/span&gt;&quot;;
+        analyzeBtn.innerHTML = "<span>Running...</span>";
       } else {
-        analyzeBtn.innerHTML = &quot;&lt;span&gt;Run Career Agent&lt;/span&gt;&quot;;
+        analyzeBtn.innerHTML = "<span>Run Career Agent</span>";
       }
     }
 
     function setError(msg) {
       if (!msg) {
-        errorBox.style.display = &quot;none&quot;;
-        errorBox.textContent = &quot;&quot;;
+        errorBox.style.display = "none";
+        errorBox.textContent = "";
         return;
       }
-      errorBox.style.display = &quot;block&quot;;
+      errorBox.style.display = "block";
       errorBox.textContent = msg;
     }
 
@@ -809,84 +795,82 @@
       const cv = cvInput.value.trim();
       const jd = jdInput.value.trim();
 
-      if (!cv &amp;&amp; !jd &amp;&amp; !userMessage) {
-        setError(&quot;Add at least your CV, a job description, or a question so the agent has something to work with.&quot;);
+      if (!cv && !jd && !userMessage) {
+        setError("Add at least your CV, a job description, or a question so the agent has something to work with.");
         return;
       }
 
-      setError(&quot;&quot;);
+      setError("");
       setLoading(true);
       showTyping();
 
       try {
-        const res = await fetch(&quot;/api/chat&quot;, {
-          method: &quot;POST&quot;,
-          headers: { &quot;Content-Type&quot;: &quot;application/json&quot; },
+        const res = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             cv,
             jobDescription: jd,
-            message: userMessage || &quot;&quot;,
+            message: userMessage || "",
           }),
         });
 
         if (!res.ok) {
           const text = await res.text();
-          throw new Error(text || &quot;Request failed&quot;);
+          throw new Error(text || "Request failed");
         }
 
         const data = await res.json();
-        const reply = data.reply || &quot;I couldn’t generate a response. Please try again with a bit more detail.&quot;;
+        const reply = data.reply || "I couldn’t generate a response. Please try again with a bit more detail.";
 
-        appendMessage(&quot;assistant&quot;, reply, &quot;AI CAREER COACH&quot;);
+        appendMessage("assistant", reply, "AI CAREER COACH");
       } catch (err) {
         console.error(err);
-        setError(&quot;Something went wrong talking to the AI. Check your API key on Vercel and try again.&quot;);
+        setError("Something went wrong talking to the AI. Check your API key on Vercel and try again.");
       } finally {
         hideTyping();
         setLoading(false);
       }
     }
 
-    analyzeBtn.addEventListener(&quot;click&quot;, () =&gt; {
+    analyzeBtn.addEventListener("click", () => {
       const defaultPrompt =
-        &quot;Act as a senior career coach. Analyze my CV and the job description (if provided). &quot; +
-        &quot;Give me a clear, structured response with: 1) a short summary of my profile, &quot; +
-        &quot;2) how well I match the role, 3) concrete improvements to my CV, and 4) next steps.&quot;;
-      appendMessage(&quot;user&quot;, defaultPrompt, &quot;FOCUS&quot;);
+        "Act as a senior career coach. Analyze my CV and the job description (if provided). " +
+        "Give me a clear, structured response with: 1) a short summary of my profile, " +
+        "2) how well I match the role, 3) concrete improvements to my CV, and 4) next steps.";
+      appendMessage("user", defaultPrompt, "FOCUS");
       callCareerCoach(defaultPrompt);
     });
 
-    clearBtn.addEventListener(&quot;click&quot;, () =&gt; {
-      cvInput.value = &quot;&quot;;
-      jdInput.value = &quot;&quot;;
-      setError(&quot;&quot;);
+    clearBtn.addEventListener("click", () => {
+      cvInput.value = "";
+      jdInput.value = "";
+      setError("");
     });
 
-    document.querySelectorAll(&quot;.chip&quot;).forEach((chip) =&gt; {
-      chip.addEventListener(&quot;click&quot;, () =&gt; {
-        const prompt = chip.getAttribute(&quot;data-prompt&quot;);
+    document.querySelectorAll(".chip").forEach((chip) => {
+      chip.addEventListener("click", () => {
+        const prompt = chip.getAttribute("data-prompt");
         if (!prompt) return;
-        appendMessage(&quot;user&quot;, prompt, &quot;FOCUS&quot;);
+        appendMessage("user", prompt, "FOCUS");
         callCareerCoach(prompt);
       });
     });
 
-    sendBtn.addEventListener(&quot;click&quot;, () =&gt; {
+    sendBtn.addEventListener("click", () => {
       const msg = chatInput.value.trim();
       if (!msg || isLoading) return;
-      chatInput.value = &quot;&quot;;
-      appendMessage(&quot;user&quot;, msg, &quot;YOU&quot;);
+      chatInput.value = "";
+      appendMessage("user", msg, "YOU");
       callCareerCoach(msg);
     });
 
-    chatInput.addEventListener(&quot;keydown&quot;, (e) =&gt; {
-      if (e.key === &quot;Enter&quot; &amp;&amp; !e.shiftKey) {
+    chatInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
         e.preventDefault();
         sendBtn.click();
       }
     });
-  &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</pre>
+  </script>
 </body>
 </html>

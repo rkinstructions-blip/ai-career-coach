@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 25.8.4.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<style type="text/css">
+		@page { size: 8.27in 11.69in; margin: 0.79in }
+		p { margin-bottom: 0.1in; line-height: 115%; background: transparent }
+		pre { font-size: 10pt; font-family: "Liberation Mono", monospace; background: transparent }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><pre>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot; /&gt;
+  &lt;title&gt;AI Career Coach&lt;/title&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+  &lt;link
+    href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;display=swap&quot;
+    rel=&quot;stylesheet&quot;
+  /&gt;
+  &lt;style&gt;
+    :root {
+      --bg: #050510;
+      --bg-alt: #0b0b1a;
+      --card: #111122;
+      --accent: #ff3ea5;
+      --accent-soft: rgba(255, 62, 165, 0.25);
+      --accent-strong: rgba(255, 62, 165, 0.9);
+      --text: #f5f5ff;
+      --muted: #a0a0c0;
+      --border: #26263a;
+      --danger: #ff4b81;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: &quot;Inter&quot;, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #1a1028 0, #050510 45%, #020208 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .app-shell {
+      width: 100%;
+      max-width: 1100px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(255, 62, 165, 0.08), rgba(0, 0, 0, 0.9));
+      border: 1px solid rgba(255, 62, 165, 0.35);
+      box-shadow:
+        0 0 40px rgba(255, 62, 165, 0.35),
+        0 0 120px rgba(255, 62, 165, 0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      backdrop-filter: blur(18px);
+    }
+
+    .app-header {
+      padding: 18px 22px;
+      border-bottom: 1px solid rgba(255, 62, 165, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: radial-gradient(circle at top left, rgba(255, 62, 165, 0.25), transparent 55%);
+      position: relative;
+    }
+
+    .app-header::after {
+      content: &quot;&quot;;
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.06), transparent 60%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .header-left {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-orb {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #ffe6f7, #ff3ea5 40%, #7b1fa2 80%);
+      box-shadow:
+        0 0 18px rgba(255, 62, 165, 0.9),
+        0 0 40px rgba(255, 62, 165, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-orb::after {
+      content: &quot;&quot;;
+      position: absolute;
+      inset: 4px;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      opacity: 0.7;
+    }
+
+    .header-title {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .header-title h1 {
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .header-title h1 span {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 62, 165, 0.6);
+      background: rgba(5, 5, 16, 0.8);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+    }
+
+    .header-title p {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .header-right {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .status-pill {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 255, 170, 0.5);
+      color: #8fffd0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #00ff99;
+      box-shadow: 0 0 10px rgba(0, 255, 153, 0.9);
+    }
+
+    .tag-pill {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: var(--muted);
+      background: rgba(5, 5, 16, 0.8);
+    }
+
+    .app-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 0;
+      min-height: 520px;
+    }
+
+    @media (max-width: 900px) {
+      .app-body {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .panel {
+      padding: 18px 20px 20px;
+    }
+
+    .panel + .panel {
+      border-left: 1px solid rgba(255, 62, 165, 0.25);
+    }
+
+    @media (max-width: 900px) {
+      .panel + .panel {
+        border-left: none;
+        border-top: 1px solid rgba(255, 62, 165, 0.25);
+      }
+    }
+
+    .panel-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .panel-title span {
+      font-size: 0.7rem;
+      color: var(--accent);
+    }
+
+    .input-card {
+      background: radial-gradient(circle at top left, rgba(255, 62, 165, 0.18), rgba(5, 5, 16, 0.96));
+      border-radius: 18px;
+      border: 1px solid rgba(255, 62, 165, 0.4);
+      padding: 14px;
+      box-shadow: 0 0 24px rgba(255, 62, 165, 0.25);
+      margin-bottom: 12px;
+    }
+
+    .input-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .input-label span {
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 90px;
+      max-height: 200px;
+      resize: vertical;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(3, 3, 12, 0.9);
+      color: var(--text);
+      padding: 10px 11px;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    textarea::placeholder {
+      color: rgba(160, 160, 192, 0.7);
+    }
+
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(255, 62, 165, 0.5);
+      background: rgba(5, 5, 18, 0.98);
+    }
+
+    .quick-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .chip {
+      font-size: 0.75rem;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 62, 165, 0.5);
+      color: var(--accent);
+      background: rgba(5, 5, 16, 0.9);
+      cursor: pointer;
+      transition: background 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
+    }
+
+    .chip:hover {
+      background: rgba(255, 62, 165, 0.12);
+      transform: translateY(-1px);
+      box-shadow: 0 0 12px rgba(255, 62, 165, 0.4);
+    }
+
+    .primary-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .btn-main {
+      flex: 1 1 180px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 62, 165, 0.9);
+      background: radial-gradient(circle at 20% 0, #ff9ed6, #ff3ea5 40%, #7b1fa2 90%);
+      color: #050510;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 10px 16px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow:
+        0 0 18px rgba(255, 62, 165, 0.9),
+        0 0 40px rgba(255, 62, 165, 0.4);
+      transition: transform 0.12s ease, box-shadow 0.18s ease, filter 0.18s ease, opacity 0.18s ease;
+    }
+
+    .btn-main span {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .btn-main:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow:
+        0 0 26px rgba(255, 62, 165, 1),
+        0 0 60px rgba(255, 62, 165, 0.6);
+    }
+
+    .btn-main:disabled {
+      opacity: 0.6;
+      cursor: default;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .btn-secondary {
+      flex: 0 0 auto;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(5, 5, 16, 0.9);
+      color: var(--muted);
+      font-size: 0.8rem;
+      padding: 8px 12px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.18s ease, border 0.18s ease, color 0.18s ease, transform 0.12s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 62, 165, 0.08);
+      border-color: rgba(255, 62, 165, 0.6);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .hint-text {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .hint-text strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .chat-shell {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .chat-window {
+      flex: 1;
+      min-height: 260px;
+      max-height: 420px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 62, 165, 0.4);
+      background:
+        radial-gradient(circle at top left, rgba(255, 62, 165, 0.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(255, 62, 165, 0.12), #050510);
+      padding: 12px;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 0 24px rgba(255, 62, 165, 0.25);
+    }
+
+    .chat-window::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .chat-window::-webkit-scrollbar-thumb {
+      background: rgba(255, 62, 165, 0.5);
+      border-radius: 999px;
+    }
+
+    .chat-message {
+      max-width: 92%;
+      margin-bottom: 10px;
+      padding: 9px 11px;
+      border-radius: 14px;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      position: relative;
+      animation: fadeInUp 0.18s ease-out;
+      white-space: pre-wrap;
+    }
+
+    .chat-message.user {
+      margin-left: auto;
+      background: rgba(5, 5, 16, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--text);
+    }
+
+    .chat-message.assistant {
+      margin-right: auto;
+      background: rgba(255, 62, 165, 0.12);
+      border: 1px solid rgba(255, 62, 165, 0.7);
+      color: #ffe6f7;
+      box-shadow: 0 0 18px rgba(255, 62, 165, 0.5);
+    }
+
+    .chat-meta {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .chat-meta span {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255, 62, 165, 0.8);
+    }
+
+    .typing-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 62, 165, 0.6);
+      background: rgba(5, 5, 16, 0.9);
+      font-size: 0.75rem;
+      color: var(--accent);
+      position: absolute;
+      bottom: 10px;
+      left: 12px;
+    }
+
+    .typing-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(255, 62, 165, 0.9);
+      animation: pulse 1s infinite ease-in-out;
+    }
+
+    .typing-dot:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+
+    .typing-dot:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    .chat-input-row {
+      margin-top: 6px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .chat-input {
+      flex: 1;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(5, 5, 16, 0.9);
+      color: var(--text);
+      padding: 8px 12px;
+      font-size: 0.8rem;
+      outline: none;
+      transition: border 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .chat-input::placeholder {
+      color: rgba(160, 160, 192, 0.7);
+    }
+
+    .chat-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(255, 62, 165, 0.5);
+      background: rgba(5, 5, 18, 0.98);
+    }
+
+    .btn-send {
+      border-radius: 999px;
+      border: 1px solid rgba(255, 62, 165, 0.9);
+      background: radial-gradient(circle at 20% 0, #ff9ed6, #ff3ea5 40%, #7b1fa2 90%);
+      color: #050510;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 8px 12px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow:
+        0 0 14px rgba(255, 62, 165, 0.9),
+        0 0 30px rgba(255, 62, 165, 0.4);
+      transition: transform 0.12s ease, box-shadow 0.18s ease, filter 0.18s ease, opacity 0.18s ease;
+    }
+
+    .btn-send:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow:
+        0 0 20px rgba(255, 62, 165, 1),
+        0 0 40px rgba(255, 62, 165, 0.6);
+    }
+
+    .btn-send:disabled {
+      opacity: 0.6;
+      cursor: default;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--muted);
+      background: rgba(5, 5, 16, 0.9);
+    }
+
+    .badge strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .error-banner {
+      margin-top: 8px;
+      font-size: 0.78rem;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 75, 129, 0.8);
+      background: rgba(80, 0, 40, 0.7);
+      color: #ffe6f0;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.6;
+      }
+      50% {
+        transform: scale(1.4);
+        opacity: 1;
+      }
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class=&quot;app-shell&quot;&gt;
+    &lt;header class=&quot;app-header&quot;&gt;
+      &lt;div class=&quot;header-left&quot;&gt;
+        &lt;div class=&quot;logo-orb&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;header-title&quot;&gt;
+          &lt;h1&gt;AI Career Coach &lt;span&gt;Agent&lt;/span&gt;&lt;/h1&gt;
+          &lt;p&gt;Your neon&#8209;pink mentor for CVs, LinkedIn, and interviews.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;header-right&quot;&gt;
+        &lt;div class=&quot;status-pill&quot;&gt;
+          &lt;div class=&quot;status-dot&quot;&gt;&lt;/div&gt;
+          Live Agent
+        &lt;/div&gt;
+        &lt;div class=&quot;tag-pill&quot;&gt;LLM&#8209;powered • Vercel • Serverless&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;
+
+    &lt;div class=&quot;app-body&quot;&gt;
+      &lt;!-- LEFT PANEL: INPUTS --&gt;
+      &lt;section class=&quot;panel&quot;&gt;
+        &lt;div class=&quot;panel-title&quot;&gt;
+          INPUTS
+          &lt;span&gt;CV • Job Description • Focus&lt;/span&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;input-card&quot;&gt;
+          &lt;div class=&quot;input-label&quot;&gt;
+            Your CV / Resume
+            &lt;span&gt;Paste text&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;textarea id=&quot;cvInput&quot; placeholder=&quot;Paste your CV or resume here. You can include bullet points, roles, achievements, and skills.&quot;&gt;&lt;/textarea&gt;
+          &lt;div class=&quot;quick-actions&quot;&gt;
+            &lt;button class=&quot;chip&quot; data-prompt=&quot;Rewrite my CV to be more concise and impact&#8209;driven.&quot;&gt;Make concise&lt;/button&gt;
+            &lt;button class=&quot;chip&quot; data-prompt=&quot;Rewrite my CV to match the job description.&quot;&gt;Match job&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;input-card&quot;&gt;
+          &lt;div class=&quot;input-label&quot;&gt;
+            Job Description (Optional)
+            &lt;span&gt;Target role&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;textarea id=&quot;jdInput&quot; placeholder=&quot;Paste the job description here if you want the AI to tailor your CV, cover letter, or answers to a specific role.&quot;&gt;&lt;/textarea&gt;
+          &lt;div class=&quot;quick-actions&quot;&gt;
+            &lt;button class=&quot;chip&quot; data-prompt=&quot;Highlight the top 5 skills this job is really asking for.&quot;&gt;Extract skills&lt;/button&gt;
+            &lt;button class=&quot;chip&quot; data-prompt=&quot;Explain how my experience maps to this job.&quot;&gt;Map my experience&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;input-card&quot;&gt;
+          &lt;div class=&quot;input-label&quot;&gt;
+            What do you want help with?
+            &lt;span&gt;Focus&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;quick-actions&quot;&gt;
+            &lt;button class=&quot;chip&quot; data-prompt=&quot;Rewrite my CV to be tailored to this job and optimized for clarity and impact.&quot;&gt;Rewrite my CV&lt;/button&gt;
+            &lt;button class=&quot;chip&quot; data-prompt=&quot;Write a compelling cover letter for this job based on my CV.&quot;&gt;Cover letter&lt;/button&gt;
+            &lt;button class=&quot;chip&quot; data-prompt=&quot;Rewrite my LinkedIn About section to sound confident, clear, and authentic.&quot;&gt;LinkedIn About&lt;/button&gt;
+            &lt;button class=&quot;chip&quot; data-prompt=&quot;Give me 10 targeted interview questions and strong sample answers for this role.&quot;&gt;Interview prep&lt;/button&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;primary-actions&quot;&gt;
+            &lt;button id=&quot;analyzeBtn&quot; class=&quot;btn-main&quot;&gt;
+              &lt;span&gt;Run Career Agent&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;button id=&quot;clearBtn&quot; class=&quot;btn-secondary&quot;&gt;
+              Clear inputs
+            &lt;/button&gt;
+          &lt;/div&gt;
+          &lt;p class=&quot;hint-text&quot;&gt;
+            The agent will combine your &lt;strong&gt;CV&lt;/strong&gt;, the &lt;strong&gt;job description&lt;/strong&gt; (if provided), and your &lt;strong&gt;focus&lt;/strong&gt; to respond like a professional career coach.
+          &lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;badge-row&quot;&gt;
+          &lt;div class=&quot;badge&quot;&gt;&lt;strong&gt;Safe:&lt;/strong&gt; No medical, legal, or financial advice.&lt;/div&gt;
+          &lt;div class=&quot;badge&quot;&gt;&lt;strong&gt;Use case:&lt;/strong&gt; CVs, LinkedIn, interviews, career clarity.&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div id=&quot;errorBox&quot; class=&quot;error-banner&quot; style=&quot;display:none;&quot;&gt;&lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;!-- RIGHT PANEL: CHAT --&gt;
+      &lt;section class=&quot;panel&quot;&gt;
+        &lt;div class=&quot;panel-title&quot;&gt;
+          COACH CONSOLE
+          &lt;span&gt;Chat • Feedback • Strategy&lt;/span&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;chat-shell&quot;&gt;
+          &lt;div id=&quot;chatWindow&quot; class=&quot;chat-window&quot;&gt;
+            &lt;div class=&quot;chat-message assistant&quot;&gt;
+              &lt;div class=&quot;chat-meta&quot;&gt;
+                &lt;span&gt;AI CAREER COACH&lt;/span&gt; • Welcome
+              &lt;/div&gt;
+              Hey, I’m your AI Career Coach. Paste your CV, optionally add a job description, then tell me what you want:
+              rewrite your CV, craft a cover letter, sharpen your LinkedIn, or prep for interviews. I’ll respond with
+              clear, structured, practical guidance you can actually use.
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class=&quot;chat-input-row&quot;&gt;
+            &lt;input
+              id=&quot;chatInput&quot;
+              class=&quot;chat-input&quot;
+              placeholder=&quot;Ask something like: “Rewrite my CV for a senior product role” or “What skills am I missing?”&quot;
+            /&gt;
+            &lt;button id=&quot;sendBtn&quot; class=&quot;btn-send&quot;&gt;
+              Send
+            &lt;/button&gt;
+          &lt;/div&gt;
+          &lt;p class=&quot;hint-text&quot;&gt;
+            Your messages are combined with your CV and job description so the agent can respond with context&#8209;aware advice.
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    const cvInput = document.getElementById(&quot;cvInput&quot;);
+    const jdInput = document.getElementById(&quot;jdInput&quot;);
+    const analyzeBtn = document.getElementById(&quot;analyzeBtn&quot;);
+    const clearBtn = document.getElementById(&quot;clearBtn&quot;);
+    const chatWindow = document.getElementById(&quot;chatWindow&quot;);
+    const chatInput = document.getElementById(&quot;chatInput&quot;);
+    const sendBtn = document.getElementById(&quot;sendBtn&quot;);
+    const errorBox = document.getElementById(&quot;errorBox&quot;);
+
+    let isLoading = false;
+    let typingEl = null;
+
+    function appendMessage(role, text, metaLabel) {
+      const wrapper = document.createElement(&quot;div&quot;);
+      wrapper.className = &quot;chat-message &quot; + (role === &quot;user&quot; ? &quot;user&quot; : &quot;assistant&quot;);
+
+      if (metaLabel) {
+        const meta = document.createElement(&quot;div&quot;);
+        meta.className = &quot;chat-meta&quot;;
+        const span = document.createElement(&quot;span&quot;);
+        span.textContent = metaLabel;
+        meta.appendChild(span);
+        wrapper.appendChild(meta);
+      }
+
+      const body = document.createElement(&quot;div&quot;);
+      body.textContent = text;
+      wrapper.appendChild(body);
+
+      chatWindow.appendChild(wrapper);
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+
+    function showTyping() {
+      if (typingEl) return;
+      typingEl = document.createElement(&quot;div&quot;);
+      typingEl.className = &quot;typing-indicator&quot;;
+      typingEl.innerHTML = `
+        &lt;span&gt;Thinking&lt;/span&gt;
+        &lt;div class=&quot;typing-dot&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;typing-dot&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;typing-dot&quot;&gt;&lt;/div&gt;
+      `;
+      chatWindow.appendChild(typingEl);
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+
+    function hideTyping() {
+      if (typingEl &amp;&amp; typingEl.parentNode) {
+        typingEl.parentNode.removeChild(typingEl);
+      }
+      typingEl = null;
+    }
+
+    function setLoading(state) {
+      isLoading = state;
+      analyzeBtn.disabled = state;
+      sendBtn.disabled = state;
+      if (state) {
+        analyzeBtn.innerHTML = &quot;&lt;span&gt;Running...&lt;/span&gt;&quot;;
+      } else {
+        analyzeBtn.innerHTML = &quot;&lt;span&gt;Run Career Agent&lt;/span&gt;&quot;;
+      }
+    }
+
+    function setError(msg) {
+      if (!msg) {
+        errorBox.style.display = &quot;none&quot;;
+        errorBox.textContent = &quot;&quot;;
+        return;
+      }
+      errorBox.style.display = &quot;block&quot;;
+      errorBox.textContent = msg;
+    }
+
+    async function callCareerCoach(userMessage) {
+      const cv = cvInput.value.trim();
+      const jd = jdInput.value.trim();
+
+      if (!cv &amp;&amp; !jd &amp;&amp; !userMessage) {
+        setError(&quot;Add at least your CV, a job description, or a question so the agent has something to work with.&quot;);
+        return;
+      }
+
+      setError(&quot;&quot;);
+      setLoading(true);
+      showTyping();
+
+      try {
+        const res = await fetch(&quot;/api/chat&quot;, {
+          method: &quot;POST&quot;,
+          headers: { &quot;Content-Type&quot;: &quot;application/json&quot; },
+          body: JSON.stringify({
+            cv,
+            jobDescription: jd,
+            message: userMessage || &quot;&quot;,
+          }),
+        });
+
+        if (!res.ok) {
+          const text = await res.text();
+          throw new Error(text || &quot;Request failed&quot;);
+        }
+
+        const data = await res.json();
+        const reply = data.reply || &quot;I couldn’t generate a response. Please try again with a bit more detail.&quot;;
+
+        appendMessage(&quot;assistant&quot;, reply, &quot;AI CAREER COACH&quot;);
+      } catch (err) {
+        console.error(err);
+        setError(&quot;Something went wrong talking to the AI. Check your API key on Vercel and try again.&quot;);
+      } finally {
+        hideTyping();
+        setLoading(false);
+      }
+    }
+
+    analyzeBtn.addEventListener(&quot;click&quot;, () =&gt; {
+      const defaultPrompt =
+        &quot;Act as a senior career coach. Analyze my CV and the job description (if provided). &quot; +
+        &quot;Give me a clear, structured response with: 1) a short summary of my profile, &quot; +
+        &quot;2) how well I match the role, 3) concrete improvements to my CV, and 4) next steps.&quot;;
+      appendMessage(&quot;user&quot;, defaultPrompt, &quot;FOCUS&quot;);
+      callCareerCoach(defaultPrompt);
+    });
+
+    clearBtn.addEventListener(&quot;click&quot;, () =&gt; {
+      cvInput.value = &quot;&quot;;
+      jdInput.value = &quot;&quot;;
+      setError(&quot;&quot;);
+    });
+
+    document.querySelectorAll(&quot;.chip&quot;).forEach((chip) =&gt; {
+      chip.addEventListener(&quot;click&quot;, () =&gt; {
+        const prompt = chip.getAttribute(&quot;data-prompt&quot;);
+        if (!prompt) return;
+        appendMessage(&quot;user&quot;, prompt, &quot;FOCUS&quot;);
+        callCareerCoach(prompt);
+      });
+    });
+
+    sendBtn.addEventListener(&quot;click&quot;, () =&gt; {
+      const msg = chatInput.value.trim();
+      if (!msg || isLoading) return;
+      chatInput.value = &quot;&quot;;
+      appendMessage(&quot;user&quot;, msg, &quot;YOU&quot;);
+      callCareerCoach(msg);
+    });
+
+    chatInput.addEventListener(&quot;keydown&quot;, (e) =&gt; {
+      if (e.key === &quot;Enter&quot; &amp;&amp; !e.shiftKey) {
+        e.preventDefault();
+        sendBtn.click();
+      }
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</body>
+</html>
